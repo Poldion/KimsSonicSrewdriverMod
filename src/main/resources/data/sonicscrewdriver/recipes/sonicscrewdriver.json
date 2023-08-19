@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "IEI",
+    "CSC",
+    "CDC"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:sculk_shrieker"
+    },
+    "E": {
+      "item": "minecraft:emerald"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "D": {
+      "item": "minecraft:dragon_breath"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "sonicscrewdriver:sonicscrewdriver",
+      "count": 1
+  }
+}
