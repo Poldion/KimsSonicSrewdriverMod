@@ -1,3 +1,5 @@
 {
-  "item.sonicscrewdriver.sonicscrewdriver": "Schallschraubenzieher"
+  "item.sonicscrewdriver.sonicscrewdriver": "Schallschraubenzieher",
+
+  "block.sonicscrewdriver.redstone_air": "Redstone Gas"
 }

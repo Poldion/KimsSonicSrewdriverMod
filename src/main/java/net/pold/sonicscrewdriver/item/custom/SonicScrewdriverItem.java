@@ -1,18 +1,20 @@
-package net.pold.sonicscrewdriver.items.custom;
+package net.pold.sonicscrewdriver.item.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.ClipContext;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.RedstoneTorchBlock;
+import net.minecraft.world.level.block.RedstoneWallTorchBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.level.BlockEvent;
+import net.pold.sonicscrewdriver.block.ModBlocks;
+
+import static net.minecraft.core.particles.DustParticleOptions.REDSTONE;
+import static net.minecraft.core.particles.DustParticleOptionsBase.readVector3f;
 
 public class SonicScrewdriverItem extends Item {
     public SonicScrewdriverItem(Properties properties) {
@@ -38,19 +40,18 @@ public class SonicScrewdriverItem extends Item {
 
             // Replace the air block with a redstone block only if it is an air block
             BlockState nextBlockState = pContext.getLevel().getBlockState(nextAirBlock);
-            if (nextBlockState.getBlock() == Blocks.AIR) {
-                BlockState redstoneBlock = Blocks.REDSTONE_WALL_TORCH.defaultBlockState();
-                pContext.getLevel().setBlockAndUpdate(nextAirBlock, redstoneBlock);
+            if (nextBlockState.getBlock() == Blocks.AIR || nextBlockState.getBlock() == Blocks.WATER) {
+                BlockState redstoneAir = ModBlocks.REDSTONE_AIR.get().defaultBlockState();
+                pContext.getLevel().setBlockAndUpdate(nextAirBlock, redstoneAir);
             }
 
-            outputCoordinates(positionClicked, player);
+
         }
 
         pContext.getItemInHand().hurtAndBreak(1, pContext.getPlayer(), player -> player.broadcastBreakEvent(player.getUsedItemHand()));
 
         return InteractionResult.SUCCESS;
     }
-
 
 
 

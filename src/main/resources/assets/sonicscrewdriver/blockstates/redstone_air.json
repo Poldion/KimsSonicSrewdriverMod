@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "sonicscrewdriver:block/redstone_air"
+    }
+  }
+}
